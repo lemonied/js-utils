@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <div>
+        <p>{{test}}&nbsp;{{test2}}</p>
+    </div>
+</div>
+
+<script src="vue-demo.js"></script>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            test: 'hello',
+            test2: 'world！'
+        },
+        methods: {
+            updateTest: function() {
+                this.test = '你好';
+            }
+        },
+        mounted: function() {
+            var _this = this;
+            setTimeout(function() {
+                _this.updateTest();
+            }, 5000);
+        }
+    });
+</script>
+</body>
+</html>
