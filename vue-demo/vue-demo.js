@@ -1,4 +1,16 @@
-(function() {
+'use strict';
+(function(root, factory) {
+    if (typeof define === 'function' && define.amd) {
+        // AMD
+        define(factory);
+    } else if (typeof exports === 'object') {
+        // Node, CommonJS之类的
+        module.exports = factory();
+    } else {
+        // 全局变量(root 即 window)
+        root.Vue = factory();
+    }
+}(this, function() {
     // {{}}的正则表达式
     var defaultTagRegStr = '\\{\\{((?:.|\\n)+?)\\}\\}';
     var defaultTagReg = new RegExp(defaultTagRegStr, 'g');
@@ -183,7 +195,5 @@
     Vue.prototype.$watch = function(item, callBack) {
         _registerWatcher(this, item, callBack);
     };
-    if (typeof window === 'object') {
-        window.Vue = Vue;
-    }
-}());
+    return Vue;
+}));
