@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#lamp{
+			height: 30px;
+			overflow: hidden;
+		}
+	</style>
+</head>
+<body>
+	<div id="lamp"></div>
+	<script src="./jquery-3.1.1.min.js"></script>
+	<script src="./lamp.js"></script>
+	<script>
+		$('#lamp').xfLamp({
+			data: ['11111', '222222', '333333']
+		});
+		$('#lamp').xfLamp({
+			data: ['4444', '5555', '6666']
+		});
+	</script>
+</body>
+</html>
