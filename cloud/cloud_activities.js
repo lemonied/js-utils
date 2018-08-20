@@ -108,16 +108,22 @@
       iActivityId: 155811,
       iFlowId: 485355
     },
-    children: [...[485356, 485716, 485624, 485757, 486479].map(item => {
+    children: [...[485356, 485716, 485560, 485624, 485757, 486479].map(item => {
       return {
         iActivityId: 155811,
         iFlowId: item
       }
-    }), ...[641217, 641219, 641222, 641226, 641240].map(item => {
+    }), ...[641217, 641219, 641222, 641226, 641240].map(item => { // 单身线
       return {
         iGiftId: item,
         iActivityId: 155811,
         iFlowId: 485691
+      }
+    }), ...[641215, 641218, 641220, 641223, 641227].map(item => { // 情侣线
+      return {
+        iGiftId: item,
+        iActivityId: 155811,
+        iFlowId: 485628
       }
     })]
   }, {
