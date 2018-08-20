@@ -120,5 +120,25 @@
         iFlowId: 485691
       }
     })]
+  }, {
+    name: '水蛙的旅途',
+    open: true,
+    bind: true,
+    bindData: {
+      iActivityId: 149871,
+      iFlowId: 472386
+    },
+    children: [...[470575, 472389, 470194, 471110, 471101].map(item => {
+      return {
+        iActivityId: 149871,
+        iFlowId: item
+      }
+    }), ...[608346, 608347, 608350, 608351, 608352, 608353].map(item => {
+      return {
+        iActivityId: 149871,
+        iFlowId: 471041,
+        iGiftId: item,
+      }
+    })]
   }]
 })()
