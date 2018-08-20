@@ -103,6 +103,22 @@
   }, {
     name: '七夕约一夏',
     open: true,
-    bind: true
+    bind: true,
+    bindData: {
+      iActivityId: 155811,
+      iFlowId: 485355
+    },
+    children: [...[485356, 485716, 485624, 485757, 486479].map(item => {
+      return {
+        iActivityId: 155811,
+        iFlowId: item
+      }
+    }), ...[641217, 641219, 641222, 641226, 641240].map(item => {
+      return {
+        iGiftId: item,
+        iActivityId: 155811,
+        iFlowId: 485691
+      }
+    })]
   }]
 })()
