@@ -1,14 +1,5 @@
 (function (){
   return [{
-    name: '奥普斯的慷慨',
-    open: false,
-    children: [...[480656, 480664].map(item => {
-      return {
-        iActivityId: '154012',
-        iFlowId: item
-      }
-    })]
-  }, {
     name: '斗志昂扬-预约新职业斗士',
     open: false,
     bind: true,
@@ -62,45 +53,6 @@
       }
     })]
   }, {
-    name: '8月飞龙商店',
-    open: true,
-    bind: true,
-    bindData: {
-      iActivityId: 155466,
-      iFlowId: 484292
-    },
-    children: [640839, 640835, 640138, 640133, 640134, 640135, 640136, 640137, 640140, 640139, 640141, 640142].map(item => {
-      return {
-        iActivityId: '155466',
-        iFlowId: '484290',
-        item
-      }
-    })
-  }, {
-    name: '洪门挑战-集章换礼',
-    open: true,
-    bind: true,
-    bindData: {
-      iActivityId: 148672,
-      iFlowId: 467050
-    },
-    children: [{
-      iActivityId: 148672,
-      iFlowId: 467628
-    }, ...[2, 3, 4, 5, 6].map(item => {
-      return {
-        iTaskId: item,
-        iActivityId: 148672,
-        iFlowId: 466890
-      }
-    }), ...[600475, 600485, 600602, 600603, 600604].map(item => {
-      return {
-        iActivityId: 148672,
-        iFlowId: 466888,
-        iGiftId: item
-      }
-    })]
-  }, {
     name: '心悦俱乐部',
     open: true,
     bind: true,
@@ -148,5 +100,9 @@
         iFlowId: item
       }
     })]
+  }, {
+    name: '七夕约一夏',
+    open: true,
+    bind: true
   }]
 })()
