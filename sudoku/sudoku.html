@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    #root{
+      display: flex;
+      flex-wrap: wrap;
+      width: 500px;
+    }
+    #root > div{
+      width: 11.11%;
+      height: 50px;
+      padding: 10px;
+      border: 1px solid #d9d9d9;
+      box-sizing: border-box;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+<div id="root"></div>
+<div>尝试次数: <span id="attempts"></span></div>
+<div>
+  <button onclick="begin()">开始</button>
+</div>
+</body>
+<script src="sudoku.js"></script>
+<script>
+  function fillGrid(board) {
+    var root = document.getElementById('root');
+    root.innerHTML = '';
+    board.forEach(function (item, i) {
+      item.forEach(function (val, j) {
+        const div = document.createElement('div');
+        div.innerText = val === '.' ? '' : val;
+        if (clonedData[i][j] !== '.') {
+          div.style.color = 'red';
+        }
+        root.append(div);
+      });
+    });
+  }
+
+  var data = [
+    ["5", "3", ".", ".", "7", ".", ".", ".", "."],
+    ["6", ".", ".", "1", "9", "5", ".", ".", "."],
+    [".", "9", "8", ".", ".", ".", ".", "6", "."],
+    ["8", ".", ".", ".", "6", ".", ".", ".", "3"],
+    ["4", ".", ".", "8", ".", "3", ".", ".", "1"],
+    ["7", ".", ".", ".", "2", ".", ".", ".", "6"],
+    [".", "6", ".", ".", ".", ".", "2", "8", "."],
+    [".", ".", ".", "4", "1", "9", ".", ".", "5"],
+    [".", ".", ".", ".", "8", ".", ".", "7", "9"]
+  ];
+  var clonedData = data.map(function(item) { return item.slice();});
+  var attempts = 0;
+  fillGrid(data);
+  function begin() {
+    new Sudoku(data).animate(20, function() {
+      attempts++;
+      document.getElementById('attempts').innerText = attempts;
+      fillGrid(data);
+    });
+  }
+</script>
+</html>
