@@ -71,18 +71,29 @@ class Sudoku {
   findAvailable(a, b) {
     const startX = a - a % 3;
     const startY = b - b % 3;
-    const square = this.board.reduce((accumulator, currentValue, index) => {
-      if (index >= startX && index < startX + 3) {
-        currentValue.forEach((val, key) => {
-          if (key >= startY && key < startY + 3) {
-            accumulator.push(val);
-          }
-        });
+    const square = [];
+    for (let i = startX; i < startX + 3; i++) {
+      for (let j = startY; j < startY + 3; j++) {
+        square.push(this.board[i][j]);
       }
-      return accumulator;
-    }, []);
+    }
     const row = this.board[a];
     const column = this.board.map(item => item[b]);
     return this.nums.filter(item => square.indexOf(item) === -1 && row.indexOf(item) === -1 && column.indexOf(item) === -1);
   }
 }
+const board = [
+  ["5", "3", ".", ".", "7", ".", ".", ".", "."],
+  ["6", ".", ".", "1", "9", "5", ".", ".", "."],
+  [".", "9", "8", ".", ".", ".", ".", "6", "."],
+  ["8", ".", ".", ".", "6", ".", ".", ".", "3"],
+  ["4", ".", ".", "8", ".", "3", ".", ".", "1"],
+  ["7", ".", ".", ".", "2", ".", ".", ".", "6"],
+  [".", "6", ".", ".", ".", ".", "2", "8", "."],
+  [".", ".", ".", "4", "1", "9", ".", ".", "5"],
+  [".", ".", ".", ".", "8", ".", ".", "7", "9"]
+];
+const beginTime = Date.now();
+new Sudoku(board).solve();
+console.log(board);
+console.log('耗时:', Date.now() - beginTime);
